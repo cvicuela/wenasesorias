@@ -35,7 +35,7 @@ export default function Contact() {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
-        {/* Left Column */}
+        {/* Left Column (2 of 5 = ~1fr of 2.5 total) */}
         <div className="lg:col-span-2 flex flex-col justify-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-8">
             Comencemos a trabajar juntas
@@ -43,7 +43,7 @@ export default function Contact() {
 
           <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <span className="text-xl mt-0.5">&#9993;</span>
+              <span className="text-xl mt-0.5">✉</span>
               <div>
                 <p className="text-sm text-gray-500 uppercase tracking-wide font-medium mb-1">
                   Email
@@ -58,7 +58,7 @@ export default function Contact() {
             </div>
 
             <div className="flex items-start gap-4">
-              <span className="text-xl mt-0.5">&#128241;</span>
+              <span className="text-xl mt-0.5">📱</span>
               <div>
                 <p className="text-sm text-gray-500 uppercase tracking-wide font-medium mb-1">
                   WhatsApp
@@ -75,7 +75,7 @@ export default function Contact() {
             </div>
 
             <div className="flex items-start gap-4">
-              <span className="text-xl mt-0.5">&#128205;</span>
+              <span className="text-xl mt-0.5">📍</span>
               <div>
                 <p className="text-sm text-gray-500 uppercase tracking-wide font-medium mb-1">
                   Ubicacion
@@ -85,7 +85,7 @@ export default function Contact() {
             </div>
 
             <div className="flex items-start gap-4">
-              <span className="text-xl mt-0.5">&#128336;</span>
+              <span className="text-xl mt-0.5">🕐</span>
               <div>
                 <p className="text-sm text-gray-500 uppercase tracking-wide font-medium mb-1">
                   Horario
@@ -96,7 +96,7 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Right Column */}
+        {/* Right Column (3 of 5 = ~1.5fr of 2.5 total) */}
         <div className="lg:col-span-3">
           <form
             action="https://formspree.io/f/YOUR_FORM_ID"
@@ -223,7 +223,7 @@ export default function Contact() {
               type="submit"
               className="w-full bg-black text-white font-semibold py-4 px-8 rounded-lg hover:bg-gray-800 transition-colors duration-300 text-center"
             >
-              Enviar Solicitud de Consulta &rarr;
+              Enviar Solicitud de Consulta →
             </button>
           </form>
         </div>

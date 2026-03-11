@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Aro - Listado de Precios | Asesoría Empresarial Estratégica</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #D4A574;
+            --primary-dark: #B8935F;
+            --secondary: #2A3F54;
+            --bg-cream: #FAF8F5;
+            --bg-white: #FFFFFF;
+            --text-dark: #1A1A1A;
+            --text-gray: #6B7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 3rem 5%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--secondary) 0%, #1a2838 100%);
+            border-radius: 20px;
+            color: white;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Intro Section */
+        .intro {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .intro h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .intro ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .intro li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem;
+            background: var(--bg-cream);
+            border-radius: 10px;
+        }
+
+        .intro li::before {
+            content: '✓';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Section Label */
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        .section-title-main {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Pricing Grid */
+        .pricing-grid {
+            display: grid;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-category {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--bg-cream);
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, #F0D9B5 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .category-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        .category-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-top: 0.3rem;
+            font-style: italic;
+        }
+
+        .pricing-options {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .pricing-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            padding: 2rem;
+            background: var(--bg-cream);
+            border-radius: 15px;
+            align-items: start;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .pricing-item:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .pricing-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .package-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta-badge {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            background: rgba(42, 63, 84, 0.08);
+            padding: 0.25rem 0.8rem;
+            border-radius: 100px;
+            font-weight: 500;
+        }
+
+        .pricing-info p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .includes-label,
+        .entregables-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .includes {
+            list-style: none;
+            display: grid;
+            gap: 0.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .includes li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .includes li::before {
+            content: '•';
+            color: var(--primary);
+            font-size: 1.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .entregables {
+            list-style: none;
+            display: grid;
+            gap: 0.4rem;
+        }
+
+        .entregables li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .entregables li::before {
+            content: '✦';
+            color: var(--primary-dark);
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        /* Ideal para */
+        .ideal-para {
+            margin-top: 1rem;
+            padding: 0.8rem 1rem;
+            background: rgba(212, 165, 116, 0.1);
+            border-left: 3px solid var(--primary);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .ideal-para-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .ideal-para ul {
+            list-style: none;
+            display: grid;
+            gap: 0.3rem;
+        }
+
+        .ideal-para ul li {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        .ideal-para ul li::before {
+            content: '—';
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* Consultant note */
+        .consultant-note {
+            background: rgba(42, 63, 84, 0.05);
+            border: 1px solid rgba(42, 63, 84, 0.15);
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .consultant-note::before {
+            content: 'ℹ';
+            font-size: 1.2rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* Exclude note */
+        .exclude-note {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            font-style: italic;
+            margin-top: 0.8rem;
+            padding: 0.5rem 0.8rem;
+            background: rgba(107, 114, 128, 0.08);
+            border-radius: 6px;
+        }
+
+        .price-tag {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+            min-width: 150px;
+        }
+
+        .price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .price-period {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-top: 0.3rem;
+        }
+
+        .price-note {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        /* Programa Anual — standalone premium block */
+        .programa-anual {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1a2838 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            color: white;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .programa-anual::before {
+            content: 'PREMIUM';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .programa-anual-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .programa-anual-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(212, 165, 116, 0.25);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .programa-anual h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+        }
+
+        .programa-anual-subtitle {
+            font-size: 0.95rem;
+            color: rgba(212, 165, 116, 0.9);
+            margin-top: 0.2rem;
+        }
+
+        .programa-anual > p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .programa-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .programa-feature {
+            padding: 1.2rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border-left: 3px solid var(--primary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            color: rgba(255,255,255,0.85);
+            font-size: 0.95rem;
+        }
+
+        .programa-feature::before {
+            content: '✦';
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+        }
+
+        .programa-bottom {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .programa-ideal {
+            padding: 1.2rem 1.5rem;
+            background: rgba(255,255,255,0.06);
+            border-radius: 12px;
+        }
+
+        .programa-ideal-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .programa-ideal p {
+            color: rgba(255,255,255,0.75);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .programa-price-box {
+            text-align: center;
+            padding: 2rem 2.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            min-width: 220px;
+        }
+
+        .programa-price-box .price {
+            font-size: 3.5rem;
+            color: white;
+        }
+
+        .programa-price-box .price-period {
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .programa-price-box .price-note {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Custom Packages */
+        .custom-section {
+            background: linear-gradient(135deg, #E8B4B8 0%, #FFF5F7 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .custom-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .custom-section p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.2rem 3rem;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Additional Info */
+        .additional-info {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .additional-info h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-box {
+            padding: 2rem;
+            background: var(--bg-cream);
+            border-radius: 15px;
+        }
+
+        .info-box h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .info-box ul {
+            list-style: none;
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .info-box li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .info-box li::before {
+            content: '→';
+            color: var(--primary);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Contact Footer */
+        .contact-footer {
+            text-align: center;
+            padding: 3rem;
+            background: var(--secondary);
+            border-radius: 20px;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        .contact-footer h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary);
+        }
+
+        .contact-item span {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .pricing-item {
+                grid-template-columns: 1fr;
+            }
+
+            .price-tag {
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .programa-bottom {
+                grid-template-columns: 1fr;
+            }
+
+            .programa-price-box {
+                min-width: auto;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .cta-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav style="position:sticky;top:0;z-index:100;background:rgba(42,63,84,0.97);backdrop-filter:blur(10px);padding:1.2rem 5%;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 20px rgba(0,0,0,0.15);">
+        <a href="AsesoriaARo.html" style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:white;letter-spacing:0.1em;text-decoration:none;">GRUPO <span style="color:#D4A574;">ARO</span></a>
+        <ul style="list-style:none;display:flex;align-items:center;gap:0.3rem;flex-wrap:wrap;">
+            <li><a href="AsesoriaARo.html#inicio" style="color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.88rem;font-weight:500;padding:0.45rem 0.9rem;border-radius:6px;">Inicio</a></li>
+            <li><a href="AsesoriaARo.html#servicios" style="color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.88rem;font-weight:500;padding:0.45rem 0.9rem;border-radius:6px;">Servicios</a></li>
+            <li><a href="AsesoriaARo.html#expertise" style="color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.88rem;font-weight:500;padding:0.45rem 0.9rem;border-radius:6px;">Expertise</a></li>
+            <li><a href="AsesoriaARo.html#proceso" style="color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.88rem;font-weight:500;padding:0.45rem 0.9rem;border-radius:6px;">Proceso</a></li>
+            <li><a href="lanes.html" style="color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.88rem;font-weight:500;padding:0.45rem 0.9rem;border-radius:6px;">Líneas</a></li>
+            <li><a href="preciosAsesoria.html" style="color:#D4A574;background:rgba(212,165,116,0.15);text-decoration:none;font-size:0.88rem;font-weight:500;padding:0.45rem 0.9rem;border-radius:6px;">Precios</a></li>
+            <li><a href="AsesoriaARo.html#contacto" style="background:#D4A574;color:white;text-decoration:none;font-size:0.88rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:8px;">Agenda una Consulta</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">GRUPO <span>ARO</span></div>
+            <h1>Listado de Precios 2025</h1>
+            <p>Asesoría Empresarial Estratégica | República Dominicana</p>
+        </div>
+
+        <!-- Intro -->
+        <div class="intro">
+            <h2>Inversión en tu Éxito Empresarial</h2>
+            <p>
+                En Grupo Aro, entendemos que cada proyecto empresarial es único. Nuestros precios reflejan 16+ años de experiencia especializada en asesoría estratégica para mujeres emprendedoras y ejecutivas en República Dominicana y la región del Caribe.
+            </p>
+            <p>
+                Todos nuestros servicios incluyen:
+            </p>
+            <ul>
+                <li>Consulta inicial sin costo</li>
+                <li>Plan estratégico personalizado</li>
+                <li>Acompañamiento continuo</li>
+                <li>Materiales y recursos exclusivos</li>
+                <li>Acceso a nuestra red de networking</li>
+                <li>Reportes de progreso mensuales</li>
+            </ul>
+        </div>
+
+        <!-- SECTION I -->
+        <div class="service-category" style="margin-bottom: 3rem;">
+            <div class="section-label">
+                <span class="section-number">I</span>
+                <span class="section-title-main">Línea de Asesoría Estratégica para Emprendedoras y Empresas</span>
+            </div>
+
+            <div class="pricing-options">
+
+                <!-- Paquete Starter -->
+                <div class="pricing-item">
+                    <div class="pricing-info">
+                        <h3>Paquete Starter</h3>
+                        <div class="package-meta">
+                            <span class="meta-badge">Para emprendedoras en etapa inicial</span>
+                            <span class="meta-badge">4–6 semanas</span>
+                            <span class="meta-badge">4 sesiones · 8 horas</span>
+                        </div>
+                        <div class="includes-label">Incluye</div>
+                        <ul class="includes">
+                            <li>Análisis digital básico de mercado y competencia</li>
+                            <li>Validación inicial del modelo de negocio</li>
+                            <li>Definición de propuesta de valor</li>
+                            <li>Estrategia Go-to-Market inicial</li>
+                            <li>Roadmap de 90 días</li>
+                        </ul>
+                        <div class="entregables-label">Entregables</div>
+                        <ul class="entregables">
+                            <li>Documento de modelo de negocio estructurado</li>
+                            <li>Resumen estratégico ejecutivo</li>
+                            <li>Checklist de lanzamiento</li>
+                            <li>Grabación de sesiones (opcional)</li>
+                        </ul>
+                    </div>
+                    <div class="price-tag">
+                        <div class="price">$3,200</div>
+                        <div class="price-period">Pago único</div>
+                        <div class="price-note">USD</div>
+                    </div>
+                </div>
+
+                <!-- Paquete Launch Pro -->
+                <div class="pricing-item">
+                    <div class="pricing-info">
+                        <h3>Paquete Launch Pro</h3>
+                        <div class="package-meta">
+                            <span class="meta-badge">De conceptualización a lanzamiento</span>
+                            <span class="meta-badge">8–12 semanas</span>
+                            <span class="meta-badge">10 sesiones · 20 horas</span>
+                        </div>
+                        <div class="includes-label">Incluye</div>
+                        <ul class="includes">
+                            <li>Todo lo del Starter</li>
+                            <li>Desarrollo estratégico de identidad de marca</li>
+                            <li>Lineamientos de posicionamiento</li>
+                            <li>Estrategia de marketing de lanzamiento</li>
+                            <li>Preparación de pitch para inversionistas</li>
+                            <li>Simulación de presentación</li>
+                        </ul>
+                        <div class="entregables-label">Entregables</div>
+                        <ul class="entregables">
+                            <li>Documento estratégico completo</li>
+                            <li>Estructura de pitch deck</li>
+                            <li>Plan de lanzamiento 90 días</li>
+                            <li>Matriz de KPIs iniciales</li>
+                        </ul>
+                    </div>
+                    <div class="price-tag">
+                        <div class="price">$6,800</div>
+                        <div class="price-period">Pago único</div>
+                        <div class="price-note">USD</div>
+                    </div>
+                </div>
+
+                <!-- Refresh Estratégico -->
+                <div class="pricing-item">
+                    <div class="pricing-info">
+                        <h3>Refresh Estratégico</h3>
+                        <div class="package-meta">
+                            <span class="meta-badge">Para negocios establecidos que necesitan claridad</span>
+                            <span class="meta-badge">6–8 semanas</span>
+                            <span class="meta-badge">8 sesiones · 16 horas</span>
+                        </div>
+                        <div class="includes-label">Incluye</div>
+                        <ul class="includes">
+                            <li>Auditoría estratégica de marca y marketing</li>
+                            <li>Diagnóstico de posicionamiento</li>
+                            <li>Ajuste de narrativa</li>
+                            <li>Optimización del modelo comercial</li>
+                            <li>Recomendación de estructura digital</li>
+                        </ul>
+                        <div class="entregables-label">Entregables</div>
+                        <ul class="entregables">
+                            <li>Documento diagnóstico</li>
+                            <li>Plan de ajuste estratégico</li>
+                            <li>Plan de crecimiento 6 meses</li>
+                        </ul>
+                    </div>
+                    <div class="price-tag">
+                        <div class="price">$5,000</div>
+                        <div class="price-period">Pago único</div>
+                        <div class="price-note">USD</div>
+                    </div>
+                </div>
+
+                <!-- Transformación Total -->
+                <div class="pricing-item">
+                    <div class="pricing-info">
+                        <h3>Transformación Total</h3>
+                        <div class="package-meta">
+                            <span class="meta-badge">Relanzamiento completo</span>
+                            <span class="meta-badge">10–14 semanas</span>
+                            <span class="meta-badge">12 sesiones · 24 horas</span>
+                        </div>
+                        <div class="includes-label">Incluye</div>
+                        <ul class="includes">
+                            <li>Todo lo del Refresh Estratégico</li>
+                            <li>Rediseño completo de identidad visual (conceptual estratégico)</li>
+                            <li>Estrategia digital y redes sociales</li>
+                            <li>Campaña de relanzamiento 360°</li>
+                            <li>Plan de retención de clientes</li>
+                            <li>Estrategia de reposicionamiento integral</li>
+                        </ul>
+                        <div class="entregables-label">Entregables</div>
+                        <ul class="entregables">
+                            <li>Plan maestro de relanzamiento</li>
+                            <li>Roadmap anual estratégico</li>
+                            <li>Framework de medición de resultados</li>
+                        </ul>
+                    </div>
+                    <div class="price-tag">
+                        <div class="price">$9,500</div>
+                        <div class="price-period">Pago único</div>
+                        <div class="price-note">USD</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SECTION II -->
+        <div class="service-category" style="margin-bottom: 3rem;">
+            <div class="section-label">
+                <span class="section-number">II</span>
+                <span class="section-title-main">Consultorías Ejecutivas</span>
+            </div>
+
+            <div class="consultant-note">
+                Todas las sesiones ejecutivas son realizadas directamente por <strong>Wendolyn Rodríguez</strong>, previa cita y evaluación del caso.
+            </div>
+
+            <div class="pricing-options">
+
+                <!-- Sesiones Puntuales -->
+                <div class="pricing-item">
+                    <div class="pricing-info">
+                        <h3>Sesiones Puntuales</h3>
+                        <div class="package-meta">
+                            <span class="meta-badge">Sesión estratégica de 2 horas</span>
+                            <span class="meta-badge">200 USD / hora</span>
+                        </div>
+                        <div class="includes-label">Incluye</div>
+                        <ul class="includes">
+                            <li>Sesión estratégica individual (2 horas)</li>
+                            <li>Análisis profundo del caso</li>
+                            <li>Recomendaciones accionables</li>
+                            <li>Documento resumen ejecutivo</li>
+                            <li>Seguimiento vía email por 1 semana</li>
+                        </ul>
+                        <div class="ideal-para">
+                            <div class="ideal-para-label">Ideal para</div>
+                            <ul>
+                                <li>Decisiones clave</li>
+                                <li>Reestructuración urgente</li>
+                                <li>Validación estratégica</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="price-tag">
+                        <div class="price">$400</div>
+                        <div class="price-period">Por sesión</div>
+                        <div class="price-note">USD · 2 horas</div>
+                    </div>
+                </div>
+
+                <!-- Iguala Mensual Ejecutiva -->
+                <div class="pricing-item">
+                    <div class="pricing-info">
+                        <h3>Iguala Mensual Ejecutiva</h3>
+                        <div class="package-meta">
+                            <span class="meta-badge">Mínimo 3 meses</span>
+                            <span class="meta-badge">8 horas mensuales</span>
+                        </div>
+                        <div class="includes-label">Incluye</div>
+                        <ul class="includes">
+                            <li>4 sesiones estratégicas (1 hora cada una)</li>
+                            <li>4 horas flexibles para revisión y análisis</li>
+                            <li>Disponibilidad vía WhatsApp (horario laboral)</li>
+                            <li>Revisión de decisiones y planes</li>
+                            <li>Acceso prioritario a recursos estratégicos</li>
+                            <li>Reporte mensual de progreso</li>
+                        </ul>
+                        <div class="ideal-para">
+                            <div class="ideal-para-label">Enfoque</div>
+                            <ul>
+                                <li>Dirección estratégica continua para ejecutivas y fundadoras</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="price-tag">
+                        <div class="price">$2,300</div>
+                        <div class="price-period">Por mes</div>
+                        <div class="price-note">Mínimo 3 meses</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SECTION III -->
+        <div class="service-category" style="margin-bottom: 3rem;">
+            <div class="section-label">
+                <span class="section-number">III</span>
+                <span class="section-title-main">Campañas</span>
+            </div>
+
+            <div class="pricing-options">
+
+                <!-- Campaña Digital Enfocada -->
+                <div class="pricing-item">
+                    <div class="pricing-info">
+                        <h3>Campaña Digital Enfocada</h3>
+                        <div class="package-meta">
+                            <span class="meta-badge">Duración: 30 días</span>
+                            <span class="meta-badge">3 sesiones estratégicas</span>
+                        </div>
+                        <div class="includes-label">Incluye</div>
+                        <ul class="includes">
+                            <li>Definición clara de objetivos</li>
+                            <li>Estrategia de campaña estructurada</li>
+                            <li>Plan de contenido 30 días</li>
+                            <li>Recomendaciones de inversión</li>
+                            <li>3 sesiones estratégicas (1 hora cada una)</li>
+                            <li>Análisis final de resultados</li>
+                        </ul>
+                        <p class="exclude-note">* No incluye ejecución de pauta.</p>
+                    </div>
+                    <div class="price-tag">
+                        <div class="price">$2,500</div>
+                        <div class="price-period">Por campaña</div>
+                        <div class="price-note">USD · 30 días</div>
+                    </div>
+                </div>
+
+                <!-- Campaña Integral 360° -->
+                <div class="pricing-item">
+                    <div class="pricing-info">
+                        <h3>Campaña Integral 360°</h3>
+                        <div class="package-meta">
+                            <span class="meta-badge">Duración: 60–90 días</span>
+                            <span class="meta-badge">8 sesiones estratégicas</span>
+                        </div>
+                        <div class="includes-label">Incluye</div>
+                        <ul class="includes">
+                            <li>Todo lo de Campaña Digital Enfocada</li>
+                            <li>Estrategia online y offline</li>
+                            <li>Coordinación con proveedores</li>
+                            <li>Gestión de relaciones públicas</li>
+                            <li>Plan de activaciones y eventos</li>
+                            <li>8 sesiones estratégicas</li>
+                            <li>Reportes semanales de progreso</li>
+                        </ul>
+                    </div>
+                    <div class="price-tag">
+                        <div class="price">$5,000</div>
+                        <div class="price-period">Por campaña</div>
+                        <div class="price-note">USD · 60–90 días</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SECTION IV: Programa Anual Intensivo -->
+        <div class="programa-anual">
+            <div class="programa-anual-header">
+                <div class="programa-anual-icon">🏆</div>
+                <div>
+                    <div style="display:flex;align-items:center;gap:1rem;">
+                        <span class="section-number" style="background:rgba(212,165,116,0.3);color:var(--primary);">IV</span>
+                        <h2>Programa Anual Intensivo</h2>
+                    </div>
+                    <div class="programa-anual-subtitle">Pago bimensual · 48 sesiones · 96 horas</div>
+                </div>
+            </div>
+
+            <p>
+                Mentoría estratégica anual completa para empresas en expansión o transformación profunda. Acompañamiento continuo durante todo el año con revisiones trimestrales, desarrollo de recursos estratégicos y soporte en decisiones clave.
+            </p>
+
+            <div class="programa-features">
+                <div class="programa-feature">Mentoría estratégica anual completa</div>
+                <div class="programa-feature">Revisión y construcción del plan estratégico anual</div>
+                <div class="programa-feature">Revisiones trimestrales profundas</div>
+                <div class="programa-feature">Desarrollo de recursos estratégicos necesarios</div>
+                <div class="programa-feature">Preparación y acompañamiento en presentaciones a inversionistas</div>
+                <div class="programa-feature">Soporte continuo en decisiones clave</div>
+            </div>
+
+            <div class="programa-bottom">
+                <div class="programa-ideal">
+                    <div class="programa-ideal-label">Ideal para</div>
+                    <p>Empresas en expansión o transformación profunda que requieren una presencia estratégica constante a lo largo del año.</p>
+                </div>
+                <div class="programa-price-box">
+                    <div class="price">$14,500</div>
+                    <div class="price-period">Anuales</div>
+                    <div class="price-note">Pago bimensual disponible</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Section -->
+        <div class="custom-section">
+            <h2>¿Necesitas un Paquete Personalizado?</h2>
+            <p>
+                Cada negocio es único. Si ninguno de nuestros paquetes se ajusta perfectamente a tus necesidades, creamos una propuesta personalizada según tus objetivos y presupuesto.
+            </p>
+            <a href="https://wa.me/18299420405?text=Hola, me interesa una cotización personalizada" class="cta-button" target="_blank">
+                Solicita una Cotización Personalizada
+                <span>→</span>
+            </a>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="additional-info">
+            <h2>Información Importante</h2>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>💳 Formas de Pago</h3>
+                    <ul>
+                        <li>Transferencia bancaria (RD$ o USD)</li>
+                        <li>PayPal (se aplica cargo adicional 3.5%)</li>
+                        <li>Tarjeta de crédito (hasta 3 meses sin intereses)</li>
+                        <li>Planes de pago personalizados disponibles</li>
+                        <li>Descuento 5% por pago anticipado completo</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>📋 Política de Inicio</h3>
+                    <ul>
+                        <li>Consulta inicial sin costo (30 minutos)</li>
+                        <li>Propuesta personalizada en 48 horas</li>
+                        <li>50% anticipo para reservar fechas</li>
+                        <li>Inicio dentro de 7-10 días laborables</li>
+                        <li>Contrato profesional con alcance definido</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>🔄 Garantía de Satisfacción</h3>
+                    <ul>
+                        <li>Primera sesión sin costo si no quedas satisfecha</li>
+                        <li>Ajustes ilimitados en estrategias propuestas</li>
+                        <li>Cancelación con 30 días de anticipación</li>
+                        <li>Reembolso proporcional si no se cumple alcance</li>
+                        <li>Garantía de confidencialidad (NDA disponible)</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>🎁 Bonos Incluidos</h3>
+                    <ul>
+                        <li>Acceso a biblioteca de recursos digitales</li>
+                        <li>Templates y formatos empresariales</li>
+                        <li>Invitación a eventos de networking</li>
+                        <li>Descuentos con proveedores aliados</li>
+                        <li>Certificado al completar programas largos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Footer -->
+        <div class="contact-footer">
+            <h2>¿Lista para Transformar tu Negocio?</h2>
+            <p style="color: rgba(255,255,255,0.85); margin-bottom: 2rem; font-size: 1.1rem;">
+                Agenda tu consulta inicial gratuita y descubre cómo podemos impulsar tu proyecto al siguiente nivel
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-item-icon">📧</div>
+                    <span>Email</span>
+                    <a href="mailto:wendolyn@mynameisaro.com">wendolyn@mynameisaro.com</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">📱</div>
+                    <span>WhatsApp</span>
+                    <a href="https://wa.me/18299420405" target="_blank">+1 (829) 942-0405</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">📍</div>
+                    <span>Ubicación</span>
+                    <a href="#" style="pointer-events: none; cursor: default;">República Dominicana</a>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem; padding: 2rem; color: var(--text-gray);">
+            <p style="font-size: 0.9rem;">
+                © 2025 Grupo Aro, SRL · Studio Est. 2008 · Todos los derechos reservados<br>
+                <span style="font-size: 0.85rem; font-style: italic;">
+                    Precios válidos hasta Diciembre 2025 · Sujetos a cambio sin previo aviso · Precios en dólares estadounidenses (USD)
+                </span>
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>
